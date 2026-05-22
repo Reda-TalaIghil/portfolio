@@ -11,132 +11,135 @@
 <style>
 :root {
     --accent:    #0ea5e9;
-    --accent-dk: #0284c7;
-    --dark:      #0f172a;
-    --dark2:     #1e293b;
+    --accent-dk: #38bdf8;
+    --dark:      #0b1120;
+    --dark2:     #131f35;
+    --dark3:     #1e2d45;
+    --border:    #1e3a5f;
+    --text:      #f0f6ff;
+    --muted:     rgba(176,207,255,0.5);
 }
 
-body { font-family: 'Inter', sans-serif; }
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+}
 html { scroll-behavior: smooth; }
 
 /* ── Navbar ──────────────────────────────────────── */
-.navbar         { background-color: var(--dark) !important; }
-.navbar-brand   { color: var(--accent) !important; font-weight: 700; }
-.nav-link       { color: rgba(255,255,255,0.72) !important; transition: color .18s; }
+.navbar         { background-color: rgba(11,17,32,0.92) !important; backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+.navbar-brand   { color: var(--accent) !important; font-weight: 700; letter-spacing: -0.3px; }
+.nav-link       { color: rgba(176,207,255,0.65) !important; transition: color .18s; }
 .nav-link:hover { color: var(--accent) !important; }
 
 /* ── Sections ────────────────────────────────────── */
-section { padding: 72px 0; }
-#Projects  { background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
-#Experience { background: #ffffff; }
-#Skills    { background: #f0f9ff; border-top: 1px solid #bae6fd; border-bottom: 1px solid #bae6fd; }
+section { padding: 80px 0; }
+section h2   { color: var(--text); }
+#Projects    { background: var(--dark2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+#Experience  { background: var(--dark); }
+#Skills      { background: var(--dark2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+#Contact     { background: var(--dark); border-top: 1px solid var(--border); }
 
 .section-eyebrow {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 8px;
 }
+.section-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 48px; }
 
 /* ── Hero ────────────────────────────────────────── */
 #About {
-    background: linear-gradient(140deg, var(--dark) 0%, #0c2a48 60%, #0d3358 100%);
-    color: white;
-    padding: 100px 0 88px;
+    background: var(--dark);
+    color: var(--text);
+    padding: 110px 0 96px;
+    border-bottom: 1px solid var(--border);
 }
 .hero-name {
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: clamp(2rem, 5vw, 3.4rem);
     font-weight: 700;
     letter-spacing: -1.5px;
-    color: white;
+    color: var(--text);
     margin-bottom: 4px;
     line-height: 1.1;
 }
-.hero-role {
-    font-size: 1.1rem;
-    color: var(--accent);
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-.hero-bio {
-    color: rgba(255,255,255,0.68);
-    max-width: 500px;
-    font-size: 0.96rem;
-    line-height: 1.75;
-    margin-bottom: 28px;
-}
+.hero-role   { font-size: 1.05rem; color: var(--accent); font-weight: 500; margin-bottom: 20px; }
+.hero-bio    { color: var(--muted); max-width: 520px; font-size: 0.95rem; line-height: 1.8; margin-bottom: 28px; }
 .hero-table td:first-child {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
-    padding-right: 28px;
-    white-space: nowrap;
-    vertical-align: middle;
-    height: 32px;
+    font-size: 0.67rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(176,207,255,0.3); padding-right: 28px; white-space: nowrap;
+    vertical-align: middle; height: 32px;
 }
-.hero-table td:last-child {
-    font-size: 0.88rem;
-    color: rgba(255,255,255,0.8);
-    vertical-align: middle;
-}
+.hero-table td:last-child { font-size: 0.88rem; color: rgba(176,207,255,0.8); vertical-align: middle; }
 
 /* ── Project Cards ───────────────────────────────── */
 .card {
-    border: 1px solid #e2e8f0;
+    background: var(--dark3);
+    border: 1px solid var(--border);
+    color: var(--text);
     transition: transform .2s ease, box-shadow .2s ease, border-color .2s;
 }
+.card-title { color: var(--text) !important; }
+.card-text  { color: var(--muted) !important; }
 .card:not(.card-future):hover {
-    transform: translateY(-5px);
-    box-shadow: 0 14px 36px rgba(14,165,233,.14);
+    transform: translateY(-4px);
+    box-shadow: 0 0 28px rgba(14,165,233,.18);
     border-color: var(--accent);
 }
 .card-future {
-    opacity: .5;
+    opacity: .35;
     border-style: dashed !important;
-    border-color: #94a3b8 !important;
+    border-color: var(--border) !important;
+    background: var(--dark2);
 }
-.card-future:hover {
-    opacity: .75;
-    transform: none !important;
-    box-shadow: none !important;
+.card-future:hover { opacity: .6; transform: none !important; box-shadow: none !important; }
+
+/* ── Tech Badges ─────────────────────────────────── */
+.tech-badge {
+    background-color: rgba(14,165,233,0.12) !important;
+    color: var(--accent-dk) !important;
+    border: 1px solid rgba(14,165,233,0.28);
+    font-weight: 500;
+}
+.badge-live {
+    background-color: rgba(34,197,94,0.15) !important;
+    color: #4ade80 !important;
+    border: 1px solid rgba(34,197,94,0.3);
+    font-weight: 600;
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    vertical-align: middle;
 }
 
 /* ── Experience Timeline ─────────────────────────── */
 #Experience article {
     border-left: 3px solid var(--accent);
-    padding-left: 22px;
-    margin-bottom: 36px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    background: var(--dark2);
+    border-radius: 0 10px 10px 0;
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 }
 #Experience article:last-child { margin-bottom: 0; }
-#Experience article ul {
-    list-style: none;
-    padding: 0;
-    margin: 8px 0 0;
-}
+#Experience article ul { list-style: none; padding: 0; margin: 8px 0 0; }
 #Experience article ul li {
-    position: relative;
-    padding-left: 1.3em;
-    margin: 0.45em 0;
-    color: #475569;
-    font-size: 0.92rem;
-    line-height: 1.6;
+    position: relative; padding-left: 1.3em; margin: 0.45em 0;
+    color: var(--muted); font-size: 0.92rem; line-height: 1.65;
 }
-#Experience article ul li::before {
-    content: '▹';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-}
+#Experience article ul li::before { content: '▹'; position: absolute; left: 0; color: var(--accent); }
+#Experience h5  { color: var(--text); }
+#Experience .text-muted { color: var(--muted) !important; }
 
 /* ── Skill Pills ─────────────────────────────────── */
 .skill-pill {
-    background: white;
-    border: 1px solid #bae6fd;
-    color: #0369a1;
+    background: var(--dark3);
+    border: 1px solid var(--border);
+    color: rgba(176,207,255,0.85);
     border-radius: 20px;
     padding: 5px 14px;
     font-size: 0.82rem;
@@ -144,21 +147,12 @@ section { padding: 72px 0; }
     transition: background .18s, border-color .18s, color .18s;
     cursor: default;
 }
-.skill-pill:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: white;
-}
+.skill-pill:hover { background: var(--accent); border-color: var(--accent); color: white; }
 
 /* ── Contact ─────────────────────────────────────── */
-#Contact {
-    background: linear-gradient(140deg, var(--dark) 0%, #0c2a48 60%, #0d3358 100%);
-    color: white;
-}
-#Contact h2 { color: white; }
-.contact-sub   { color: rgba(255,255,255,0.48); margin-bottom: 40px; font-size: 0.95rem; }
+.contact-sub   { color: var(--muted); margin-bottom: 40px; font-size: 0.95rem; }
 .contact-label { font-size: 0.67rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 5px; }
-.contact-link  { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.93rem; transition: color .18s; }
+.contact-link  { color: rgba(176,207,255,0.8); text-decoration: none; font-size: 0.93rem; transition: color .18s; }
 .contact-link:hover { color: var(--accent); }
 </style>
 </head>
@@ -204,8 +198,8 @@ section { padding: 72px 0; }
             <tr><td>Contact</td><td>talaighil.reda@gmail.com</td></tr>
         </table>
         <a class="btn btn-outline-light me-2" href="#Projects">View Projects</a>
-        <a class="btn text-white fw-semibold" href="#Contact"
-           style="background:var(--accent);border-color:var(--accent);">Contact me</a>
+        <a class="btn fw-semibold" href="#Contact"
+           style="background:var(--accent);border-color:var(--accent);color:#0b1120;">Contact me</a>
     </div>
 </section>
 
@@ -214,9 +208,9 @@ section { padding: 72px 0; }
     <div class="container">
         <p class="section-eyebrow">Work</p>
         <h2 class="fw-bold mb-1">My Projects</h2>
-        <p class="text-muted mb-5">Things I've built and shipped.</p>
+        <p class="section-sub">Things I've built and shipped.</p>
 
-        <h6 class="text-uppercase text-muted mb-3" style="font-size:.7rem;letter-spacing:.1em;">Completed</h6>
+        <p class="section-eyebrow mb-3">Completed</p>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3 mb-5">
             <div class="col">
                 <div class="card h-100">
@@ -228,11 +222,11 @@ section { padding: 72px 0; }
                             timers, and a virtual store.
                         </p>
                         <div class="d-flex flex-wrap gap-1 mt-auto">
-                            <span class="badge bg-secondary">Flutter</span>
-                            <span class="badge bg-secondary">Dart</span>
-                            <span class="badge bg-secondary">Supabase</span>
-                            <span class="badge bg-secondary">Provider</span>
-                            <span class="badge bg-secondary">Google Ads</span>
+                            <span class="badge tech-badge">Flutter</span>
+                            <span class="badge tech-badge">Dart</span>
+                            <span class="badge tech-badge">Supabase</span>
+                            <span class="badge tech-badge">Provider</span>
+                            <span class="badge tech-badge">Google Ads</span>
                         </div>
                     </div>
                 </div>
@@ -247,10 +241,10 @@ section { padding: 72px 0; }
                             versioned GitHub releases.
                         </p>
                         <div class="d-flex flex-wrap gap-1 mt-auto">
-                            <span class="badge bg-secondary">Android</span>
-                            <span class="badge bg-secondary">Java</span>
-                            <span class="badge bg-secondary">Firebase</span>
-                            <span class="badge bg-secondary">GitHub</span>
+                            <span class="badge tech-badge">Android</span>
+                            <span class="badge tech-badge">Java</span>
+                            <span class="badge tech-badge">Firebase</span>
+                            <span class="badge tech-badge">GitHub</span>
                         </div>
                     </div>
                 </div>
@@ -265,10 +259,10 @@ section { padding: 72px 0; }
                             production-ready stakeholder site.
                         </p>
                         <div class="d-flex flex-wrap gap-1 mt-auto">
-                            <span class="badge bg-secondary">HTML</span>
-                            <span class="badge bg-secondary">CSS</span>
-                            <span class="badge bg-secondary">JavaScript</span>
-                            <span class="badge bg-secondary">GitHub Pages</span>
+                            <span class="badge tech-badge">HTML</span>
+                            <span class="badge tech-badge">CSS</span>
+                            <span class="badge tech-badge">JavaScript</span>
+                            <span class="badge tech-badge">GitHub Pages</span>
                         </div>
                     </div>
                 </div>
@@ -282,10 +276,10 @@ section { padding: 72px 0; }
                             Built with Bootstrap and custom CSS. The site you are on right now.
                         </p>
                         <div class="d-flex flex-wrap gap-1 mt-auto">
-                            <span class="badge bg-secondary">HTML</span>
-                            <span class="badge bg-secondary">CSS</span>
-                            <span class="badge bg-secondary">Bootstrap</span>
-                            <span class="badge bg-secondary">Vercel</span>
+                            <span class="badge tech-badge">HTML</span>
+                            <span class="badge tech-badge">CSS</span>
+                            <span class="badge tech-badge">Bootstrap</span>
+                            <span class="badge tech-badge">Vercel</span>
                         </div>
                     </div>
                 </div>
@@ -299,15 +293,15 @@ section { padding: 72px 0; }
                             animation state machines, and custom level design using GDScript.
                         </p>
                         <div class="d-flex flex-wrap gap-1 mt-auto">
-                            <span class="badge bg-secondary">Godot</span>
-                            <span class="badge bg-secondary">GDScript</span>
+                            <span class="badge tech-badge">Godot</span>
+                            <span class="badge tech-badge">GDScript</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <h6 class="text-uppercase text-muted mb-3" style="font-size:.7rem;letter-spacing:.1em;">Future / In Progress</h6>
+        <p class="section-eyebrow mb-3">Future / In Progress</p>
         <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-3">
             <div class="col"><div class="card card-future h-100"><div class="card-body"><h6 class="card-title">Service Website</h6></div></div></div>
             <div class="col"><div class="card card-future h-100"><div class="card-body"><h6 class="card-title">Memory Game</h6></div></div></div>
@@ -323,7 +317,7 @@ section { padding: 72px 0; }
     <div class="container">
         <p class="section-eyebrow">Background</p>
         <h2 class="fw-bold mb-1">My Experience</h2>
-        <p class="text-muted mb-5">Where I've worked and studied.</p>
+        <p class="section-sub">Where I've worked and studied.</p>
 
         <article>
             <h5 class="fw-semibold mb-0">Mobile Application Developer — Co-op</h5>
@@ -354,7 +348,7 @@ section { padding: 72px 0; }
     <div class="container">
         <p class="section-eyebrow">Toolkit</p>
         <h2 class="fw-bold mb-1">My Skills</h2>
-        <p class="text-muted mb-5">Tools and technologies I work with.</p>
+        <p class="section-sub">Tools and technologies I work with.</p>
         <div class="row g-5">
             <div class="col-md-6">
                 <p class="section-eyebrow mb-3">Mobile &amp; Frontend</p>
