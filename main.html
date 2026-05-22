@@ -3,295 +3,412 @@
 <head>
 <meta charset="UTF-8">
 <title>Reda Tala Ighil — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 <style>
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #888888;
+:root {
+    --accent:    #0ea5e9;
+    --accent-dk: #0284c7;
+    --dark:      #0f172a;
+    --dark2:     #1e293b;
 }
-nav ul li {
-    float: left;
+
+body { font-family: 'Inter', sans-serif; }
+html { scroll-behavior: smooth; }
+
+/* ── Navbar ──────────────────────────────────────── */
+.navbar         { background-color: var(--dark) !important; }
+.navbar-brand   { color: var(--accent) !important; font-weight: 700; }
+.nav-link       { color: rgba(255,255,255,0.72) !important; transition: color .18s; }
+.nav-link:hover { color: var(--accent) !important; }
+
+/* ── Sections ────────────────────────────────────── */
+section { padding: 72px 0; }
+#Projects  { background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+#Experience { background: #ffffff; }
+#Skills    { background: #f0f9ff; border-top: 1px solid #bae6fd; border-bottom: 1px solid #bae6fd; }
+
+.section-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
 }
-nav ul li a {
-    display: block;
+
+/* ── Hero ────────────────────────────────────────── */
+#About {
+    background: linear-gradient(140deg, var(--dark) 0%, #0c2a48 60%, #0d3358 100%);
     color: white;
-    text-align: center;
-    padding: 12px 30px;
-    text-decoration: none;
+    padding: 100px 0 88px;
+}
+.hero-name {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    color: white;
+    margin-bottom: 4px;
+    line-height: 1.1;
+}
+.hero-role {
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.hero-bio {
+    color: rgba(255,255,255,0.68);
+    max-width: 500px;
+    font-size: 0.96rem;
+    line-height: 1.75;
+    margin-bottom: 28px;
+}
+.hero-table td:first-child {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    padding-right: 28px;
+    white-space: nowrap;
+    vertical-align: middle;
+    height: 32px;
+}
+.hero-table td:last-child {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.8);
+    vertical-align: middle;
 }
 
-nav ul li a:hover {
-    background-color: #333333;
+/* ── Project Cards ───────────────────────────────── */
+.card {
+    border: 1px solid #e2e8f0;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s;
 }
-.btn {
-    display: inline-block;
-    padding: 8px 12px;
-    margin-right: 8px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    text-decoration: none;
-    color: inherit;
-    background: transparent;
+.card:not(.card-future):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 36px rgba(14,165,233,.14);
+    border-color: var(--accent);
 }
-html {
-  scroll-behavior: smooth;
+.card-future {
+    opacity: .5;
+    border-style: dashed !important;
+    border-color: #94a3b8 !important;
 }
-.projects-row {
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.ProjectBox {
-  border: 1px solid #cccccc;
-  border-radius: 8px;
-  padding: 20px 24px;
-  text-align: center;
-  width: 180px;
-}
-.ProjectBox ul {
-    background-color: transparent;
-    overflow: visible;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    padding: 8px 0 0 0;
-}
-.ProjectBox ul li {
-    float: none;
-    display: inline-block;
-    border: 1px solid #aaaaaa;
-    border-radius: 4px;
-    padding: 3px 8px;
-    font-size: 0.8em;
-    background-color: #f5f5f5;
-    color: #333;
+.card-future:hover {
+    opacity: .75;
+    transform: none !important;
+    box-shadow: none !important;
 }
 
+/* ── Experience Timeline ─────────────────────────── */
+#Experience article {
+    border-left: 3px solid var(--accent);
+    padding-left: 22px;
+    margin-bottom: 36px;
+}
+#Experience article:last-child { margin-bottom: 0; }
 #Experience article ul {
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 8px 0 0;
 }
 #Experience article ul li {
     position: relative;
-    padding-left: 1.2em;
-    margin: 0.4em 0;
+    padding-left: 1.3em;
+    margin: 0.45em 0;
+    color: #475569;
+    font-size: 0.92rem;
+    line-height: 1.6;
 }
 #Experience article ul li::before {
     content: '▹';
     position: absolute;
     left: 0;
-    top: 0;
+    color: var(--accent);
 }
 
-section {
-    padding: 28px 20px;
-    margin: 28px 0;
-    border-top: 1px solid #dddddd;
+/* ── Skill Pills ─────────────────────────────────── */
+.skill-pill {
+    background: white;
+    border: 1px solid #bae6fd;
+    color: #0369a1;
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: background .18s, border-color .18s, color .18s;
+    cursor: default;
 }
-section:first-of-type {
-    border-top: none;
-    margin-top: 0;
-    padding-top: 0;
-}
-section h1 { margin-top: 0; }
-
-.contact-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.contact-row {
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.contact-label {
-  font-weight: bold;
-  font-size: 0.85em;
-  color: #555;
-  min-width: 72px;
-}
-.contact-value a {
-  color: inherit;
-  text-decoration: none;
-}
-.contact-value a:hover {
-  text-decoration: underline;
+.skill-pill:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
 }
 
+/* ── Contact ─────────────────────────────────────── */
+#Contact {
+    background: linear-gradient(140deg, var(--dark) 0%, #0c2a48 60%, #0d3358 100%);
+    color: white;
+}
+#Contact h2 { color: white; }
+.contact-sub   { color: rgba(255,255,255,0.48); margin-bottom: 40px; font-size: 0.95rem; }
+.contact-label { font-size: 0.67rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 5px; }
+.contact-link  { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.93rem; transition: color .18s; }
+.contact-link:hover { color: var(--accent); }
 </style>
-    
-
-
 </head>
 <body>
-    <nav><ul>
-        <li><a href="#About">About</a></li>
-        <li><a href="#Projects">Projects</a></li>
-        <li><a href="#Experience">Experience</a></li>
-        <li><a href="#Skills">Skills</a></li>
-        <li><a href="#Contact">Contact me</a></li>
-    </ul></nav>
-    <section id="About">
-        <h1>About me</h1>
-    <h2>Reda TALA IGHIL</h2>
-    <h3>Software engineer</h3>
-    <p>
-        CO-OP Software Engineering student at the University of Ottawa. Built and shipped a production-grade cross-platform mobile application serving real users. Specializing in Flutter, mobile architecture, and backend integration
-    </p>
-    <table>
-        <tr>
-            <td>LOCATION</td>
-            <td>Ottawa, Ontario, Canada</td>
-        </tr>
-        <tr>
-            <td>STATUS</td>
-            <td>Seeking next CO-OP placement</td>
-        </tr>
-        <tr>
-            <td>LANGUAGES</td>
-            <td>English · French · Arabic</td>
-        </tr>
-        <tr>
-            <td>CONTACT</td>
-            <td>talaighil.reda@gmail.com</td>
-        </tr>
-    </table>
-    <a class="btn" href="#Projects">View Projects</a>
-    <a class="btn" href="#Contact">Contact me</a>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-md navbar-dark sticky-top">
+    <div class="container">
+        <span class="navbar-brand">My portfolio</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto gap-1">
+                <li class="nav-item"><a class="nav-link" href="#About">About me</a></li>
+                <li class="nav-item"><a class="nav-link" href="#Projects">My Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#Experience">My Experience</a></li>
+                <li class="nav-item"><a class="nav-link" href="#Skills">My Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#Contact">Contact me</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero / About -->
+<section id="About">
+    <div class="container">
+        <p class="section-eyebrow">Portfolio</p>
+        <h1 class="hero-name">Reda TALA IGHIL</h1>
+        <p class="hero-role">Software Engineer</p>
+        <p class="hero-bio">
+            CO-OP Software Engineering student at the University of Ottawa. Built and shipped a
+            production-grade cross-platform mobile application serving real users. Specializing
+            in Flutter, mobile architecture, and backend integration.
+            I take end-to-end ownership, from architecture decisions to deployment, and focus
+            on shipping products that real people actually use.
+        </p>
+        <table class="hero-table mb-4">
+            <tr><td>Location</td><td>Ottawa, Ontario, Canada</td></tr>
+            <tr><td>Status</td><td>Seeking next CO-OP placement</td></tr>
+            <tr><td>Languages</td><td>English · French · Arabic</td></tr>
+            <tr><td>Contact</td><td>talaighil.reda@gmail.com</td></tr>
+        </table>
+        <a class="btn btn-outline-light me-2" href="#Projects">View Projects</a>
+        <a class="btn text-white fw-semibold" href="#Contact"
+           style="background:var(--accent);border-color:var(--accent);">Contact me</a>
+    </div>
 </section>
+
+<!-- Projects -->
 <section id="Projects">
-    <h1>My projects</h1>
-    <div>
-    <h2>Done</h2>
-    <div class="projects-row">
-        <div class="ProjectBox"><h3>SkillED app</h3><ul>
-            <li>Flutter</li>
-            <li>dart</li>
-            <li>supabase</li>
-            <li>Provider</li>
-            <li>Google ads</li>
-        </ul></div>
-        <div class="ProjectBox"><h3>Otams</h3><ul>
-            <li>Android</li>
-            <li>Java</li>
-            <li>Firebase</li>
-            <li>Github</li>
+    <div class="container">
+        <p class="section-eyebrow">Work</p>
+        <h2 class="fw-bold mb-1">My Projects</h2>
+        <p class="text-muted mb-5">Things I've built and shipped.</p>
 
-        </ul></div>
-        <div class="ProjectBox"><h3>Starline Corp</h3><ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>GitHub pages</li>
-        </ul></div>
-        <div class="ProjectBox"><h3>Portfolio Website</h3><ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>Bootstrap</li>
-            <li>Vercel</li>
-        </ul></div>
-        <div class="ProjectBox"><h3>2D game</h3><ul>
-            <li>Godot</li>
-            <li>GDScript</li>
-        </ul></div>
-    </div>
-    </div>
-    <div>
-        <h2>future or in progress</h2>
-        <div class="projects-row">
-            <div class="ProjectBox"><h3>Service Website</h3></div>
-            <div class="ProjectBox"><h3>Memory game</h3></div>
-            <div class="ProjectBox"><h3>E-commerce site</h3></div>
-            <div class="ProjectBox"><h3>a data analysis and visualization website</h3></div>
-            <div class="ProjectBox"><h3>Learning C projects</h3></div>
+        <h6 class="text-uppercase text-muted mb-3" style="font-size:.7rem;letter-spacing:.1em;">Completed</h6>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3 mb-5">
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title fw-semibold mb-1">SkillED App</h6>
+                        <p class="card-text text-muted small mb-3">
+                            Full cross-platform educational quiz app (iOS &amp; Android) serving users aged 8–18
+                            with entrepreneurship and financial literacy content. Gamified with lives, badges,
+                            timers, and a virtual store.
+                        </p>
+                        <div class="d-flex flex-wrap gap-1 mt-auto">
+                            <span class="badge bg-secondary">Flutter</span>
+                            <span class="badge bg-secondary">Dart</span>
+                            <span class="badge bg-secondary">Supabase</span>
+                            <span class="badge bg-secondary">Provider</span>
+                            <span class="badge bg-secondary">Google Ads</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title fw-semibold mb-1">OTAMS</h6>
+                        <p class="card-text text-muted small mb-3">
+                            Online Tutoring Appointment Management System. Full-stack Android app built in a
+                            5-member team. Firebase Auth + real-time database, UML docs, unit testing, and
+                            versioned GitHub releases.
+                        </p>
+                        <div class="d-flex flex-wrap gap-1 mt-auto">
+                            <span class="badge bg-secondary">Android</span>
+                            <span class="badge bg-secondary">Java</span>
+                            <span class="badge bg-secondary">Firebase</span>
+                            <span class="badge bg-secondary">GitHub</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title fw-semibold mb-1">Starline Corp</h6>
+                        <p class="card-text text-muted small mb-3">
+                            Responsive web application for an interstellar travel agency with interactive
+                            booking and vacation-planning modules. Published to GitHub Pages as a
+                            production-ready stakeholder site.
+                        </p>
+                        <div class="d-flex flex-wrap gap-1 mt-auto">
+                            <span class="badge bg-secondary">HTML</span>
+                            <span class="badge bg-secondary">CSS</span>
+                            <span class="badge bg-secondary">JavaScript</span>
+                            <span class="badge bg-secondary">GitHub Pages</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title fw-semibold mb-1">Portfolio Website</h6>
+                        <p class="card-text text-muted small mb-3">
+                            Personal developer portfolio designed for clarity and performance.
+                            Built with Bootstrap and custom CSS. The site you are on right now.
+                        </p>
+                        <div class="d-flex flex-wrap gap-1 mt-auto">
+                            <span class="badge bg-secondary">HTML</span>
+                            <span class="badge bg-secondary">CSS</span>
+                            <span class="badge bg-secondary">Bootstrap</span>
+                            <span class="badge bg-secondary">Vercel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title fw-semibold mb-1">2D Game</h6>
+                        <p class="card-text text-muted small mb-3">
+                            A 2D platformer game built in Godot. Implemented physics, enemy behaviour,
+                            animation state machines, and custom level design using GDScript.
+                        </p>
+                        <div class="d-flex flex-wrap gap-1 mt-auto">
+                            <span class="badge bg-secondary">Godot</span>
+                            <span class="badge bg-secondary">GDScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h6 class="text-uppercase text-muted mb-3" style="font-size:.7rem;letter-spacing:.1em;">Future / In Progress</h6>
+        <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-3">
+            <div class="col"><div class="card card-future h-100"><div class="card-body"><h6 class="card-title">Service Website</h6></div></div></div>
+            <div class="col"><div class="card card-future h-100"><div class="card-body"><h6 class="card-title">Memory Game</h6></div></div></div>
+            <div class="col"><div class="card card-future h-100"><div class="card-body"><h6 class="card-title">E-commerce Site</h6></div></div></div>
+            <div class="col"><div class="card card-future h-100"><div class="card-body"><h6 class="card-title">Data Visualization Site</h6></div></div></div>
+            <div class="col"><div class="card card-future h-100"><div class="card-body"><h6 class="card-title">Learning C Projects</h6></div></div></div>
         </div>
     </div>
 </section>
+
+<!-- Experience -->
 <section id="Experience">
-    <h1>Experience</h1>
+    <div class="container">
+        <p class="section-eyebrow">Background</p>
+        <h2 class="fw-bold mb-1">My Experience</h2>
+        <p class="text-muted mb-5">Where I've worked and studied.</p>
 
-    <article>
-        <h2>Mobile Application Developer — Co-op</h2>
-        <div><strong>SkillED Startup</strong> — Remote</div>
-        <div>Jan 2026 — Apr 2026</div>
-        <ul>
-            <li>Built and shipped a cross-platform educational quiz app (iOS &amp; Android).</li>
-            <li>Architected Supabase backend with auth and PostgreSQL models.</li>
-            <li>Implemented QR-code redemption system for physical-to-digital rewards.</li>
-            <li>Designed gamification features: lives, timers, progression, badges.</li>
-        </ul>
-    </article>
+        <article>
+            <h5 class="fw-semibold mb-0">Mobile Application Developer — Co-op</h5>
+            <div class="text-muted small"><strong>SkillED Startup</strong> · Remote</div>
+            <div class="text-muted small mb-2">Jan 2026 — Apr 2026</div>
+            <ul>
+                <li>Built and shipped a full cross-platform educational quiz app (iOS &amp; Android) serving users aged 8–18.</li>
+                <li>Built parental-controls dashboard with multi-child accounts, per-child progress tracking, and IAP oversight.</li>
+                <li>Added full multi-language support (English, French, Arabic) via flutter_localizations.</li>
+                <li>Translated Figma designs into pixel-perfect Flutter screens across the full app workflow.</li>
+            </ul>
+        </article>
 
-    <article>
-        <h2>BASC Software Engineering — Co-op</h2>
-        <div><strong>University of Ottawa</strong> — Ottawa, ON</div>
-        <div>Sep 2024 — Present</div>
-        <ul>
-            <li>Bachelor of Applied Science in Software Engineering with integrated work terms.</li>
-            <li>Coursework: data structures and algorithms, UI/UX design, system design, Computer architecture and Operating systems</li>
-        </ul>
-    </article>
-
+        <article>
+            <h5 class="fw-semibold mb-0">BASC Software Engineering — Co-op</h5>
+            <div class="text-muted small"><strong>University of Ottawa</strong> · Ottawa, ON</div>
+            <div class="text-muted small mb-2">Sep 2024 — Present</div>
+            <ul>
+                <li>Bachelor of Applied Science in Software Engineering with integrated work terms.</li>
+                <li>Coursework: data structures and algorithms, UI/UX design, system design, computer architecture and operating systems.</li>
+            </ul>
+        </article>
+    </div>
 </section>
+
+<!-- Skills -->
 <section id="Skills">
-    <h1>Skills and tools I use</h1>
-    <table>
-        <tr>
-            <th>Mobile & Frontend</th>
-            <th>Backend & Tools</th>
-        </tr>
-        <tr>
-            <td>Flutter / Dart</td>
-            <td>Supabase</td>
-        </tr>
-        <tr>
-            <td>HTML / CSS / JS / Bootstrap</td>
-            <td>Firebase</td>
-        </tr>
-        <tr>
-            <td>Android / Java</td>
-            <td>Python / C</td>
-        </tr>
-        <tr>
-            <td>Godot / GDScript</td>
-            <td>Git / Github / Agile / UML</td>
-        </tr>
-    </table>
-</section>
-<section id="Contact">
-    <h1>Contact me</h1>
-    <div class="contact-list">
-        <div class="contact-row">
-            <div class="contact-item">
-                <div class="contact-icon"></div>
-                <div class="contact-label">EMAIL </div>
-                <div class="contact-value"><a href="mailto:talaighil.reda@gmail.com">talaighil.reda@gmail.com</a></div>
+    <div class="container">
+        <p class="section-eyebrow">Toolkit</p>
+        <h2 class="fw-bold mb-1">My Skills</h2>
+        <p class="text-muted mb-5">Tools and technologies I work with.</p>
+        <div class="row g-5">
+            <div class="col-md-6">
+                <p class="section-eyebrow mb-3">Mobile &amp; Frontend</p>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="skill-pill">Flutter / Dart</span>
+                    <span class="skill-pill">HTML / CSS / JS</span>
+                    <span class="skill-pill">Bootstrap</span>
+                    <span class="skill-pill">Android / Java</span>
+                    <span class="skill-pill">Godot / GDScript</span>
+                </div>
             </div>
-            <div class="contact-item">
-                <div class="contact-icon"></div>
-                <div class="contact-label">GITHUB</div>
-                <div class="contact-value"><a href="https://github.com/Reda-Talalghil" target="_blank" rel="noopener noreferrer">github.com/Reda-Talalghil</a></div>
-            </div>
-        </div>
-        <div class="contact-row">
-            <div class="contact-item">
-                <div class="contact-icon"></div>
-                <div class="contact-label">LINKEDIN </div>
-                <div class="contact-value"><a href="https://linkedin.com/in/reda-tala-ighil" target="_blank" rel="noopener noreferrer">linkedin.com/in/reda-tala-ighil</a></div>
+            <div class="col-md-6">
+                <p class="section-eyebrow mb-3">Backend &amp; Tools</p>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="skill-pill">Supabase</span>
+                    <span class="skill-pill">Firebase</span>
+                    <span class="skill-pill">Python / C</span>
+                    <span class="skill-pill">Git / GitHub</span>
+                    <span class="skill-pill">Agile / UML</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Contact -->
+<section id="Contact">
+    <div class="container">
+        <p class="section-eyebrow">Get in touch</p>
+        <h2 class="fw-bold mb-1">Contact me</h2>
+        <p class="contact-sub">Open to co-op opportunities and collaborations.</p>
+        <div class="d-flex flex-wrap gap-5">
+            <div>
+                <p class="contact-label">Email</p>
+                <a class="contact-link d-flex align-items-center gap-2" href="mailto:talaighil.reda@gmail.com">
+                    <i class="bi bi-envelope-fill fs-5"></i> talaighil.reda@gmail.com
+                </a>
+            </div>
+            <div>
+                <p class="contact-label">GitHub</p>
+                <a class="contact-link d-flex align-items-center gap-2" href="https://github.com/Reda-TalaIghil" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-github fs-5"></i> github.com/Reda-TalaIghil
+                </a>
+            </div>
+            <div>
+                <p class="contact-label">LinkedIn</p>
+                <a class="contact-link d-flex align-items-center gap-2" href="https://linkedin.com/in/reda-tala-ighil" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-linkedin fs-5"></i> linkedin.com/in/reda-tala-ighil
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
