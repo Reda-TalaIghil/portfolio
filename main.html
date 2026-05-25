@@ -96,6 +96,26 @@ section h2   { color: var(--text); }
     background: var(--dark2);
 }
 .card-future:hover { opacity: .6; transform: none !important; box-shadow: none !important; }
+.project-link-btn {
+    border-color: rgba(176,207,255,0.22);
+    color: var(--text);
+    font-size: 0.82rem;
+    padding: 0.45rem 0.8rem;
+}
+.project-link-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #0b1120;
+}
+.project-link-btn.is-disabled,
+.project-link-btn.is-disabled:hover {
+    background: transparent;
+    border-color: rgba(176,207,255,0.14);
+    color: rgba(176,207,255,0.38);
+    box-shadow: none;
+    pointer-events: none;
+    opacity: 1;
+}
 
 /* ── Tech Badges ─────────────────────────────────── */
 .tech-badge {
@@ -264,6 +284,10 @@ section h2   { color: var(--text); }
                             <span class="badge tech-badge">JavaScript</span>
                             <span class="badge tech-badge">GitHub Pages</span>
                         </div>
+                        <a class="btn btn-outline-light btn-sm mt-3 align-self-start project-link-btn"
+                           href="https://starlinescorp.github.io/" target="_blank" rel="noopener noreferrer">
+                            View Site
+                        </a>
                     </div>
                 </div>
             </div>
@@ -303,11 +327,50 @@ section h2   { color: var(--text); }
 
         <p class="section-eyebrow mb-3">Future / In Progress</p>
         <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-3">
-            <div class="col"><div class="card card-future h-100"><div class="card-body"><h6 class="card-title">Service Website</h6></div></div></div>
-            <div class="col"><div class="card card-future h-100"><div class="card-body"><h6 class="card-title">Memory Game</h6></div></div></div>
-            <div class="col"><div class="card card-future h-100"><div class="card-body"><h6 class="card-title">E-commerce Site</h6></div></div></div>
-            <div class="col"><div class="card card-future h-100"><div class="card-body"><h6 class="card-title">Data Visualization Site</h6></div></div></div>
-            <div class="col"><div class="card card-future h-100"><div class="card-body"><h6 class="card-title">Learning C Projects</h6></div></div></div>
+            <div class="col">
+                <div class="card card-future h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title">Service Website</h6>
+                        <a class="btn btn-outline-light btn-sm mt-3 align-self-start project-link-btn is-disabled"
+                           href="#" aria-disabled="true" tabindex="-1">
+                            View Site Coming Soon
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card card-future h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title">Memory Game</h6>
+                        <a class="btn btn-outline-light btn-sm mt-3 align-self-start project-link-btn is-disabled"
+                           href="#" aria-disabled="true" tabindex="-1">
+                            View Site Coming Soon
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card card-future h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title">E-commerce Site</h6>
+                        <a class="btn btn-outline-light btn-sm mt-3 align-self-start project-link-btn is-disabled"
+                           href="#" aria-disabled="true" tabindex="-1">
+                            View Site Coming Soon
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card card-future h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title">Data Visualization Site</h6>
+                        <a class="btn btn-outline-light btn-sm mt-3 align-self-start project-link-btn is-disabled"
+                           href="#" aria-disabled="true" tabindex="-1">
+                            View Site Coming Soon
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
