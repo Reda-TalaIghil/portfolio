@@ -43,6 +43,7 @@ section h2   { color: var(--text); }
 #Projects    { background: rgba(230,240,236,0.72); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 #Experience  { background: rgba(238,244,251,0.72); }
 #Skills      { background: rgba(230,240,236,0.66); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+#Process     { background: rgba(255,255,255,0.72); border-bottom: 1px solid var(--border); }
 #Contact     { background: rgba(238,244,251,0.7); border-top: 1px solid var(--border); }
 
 .section-eyebrow {
@@ -219,6 +220,7 @@ body.theme-dark #Projects,
 body.theme-dark #Skills {
     background: rgba(19,31,53,0.98);
 }
+body.theme-dark #Process,
 body.theme-dark #Experience,
 body.theme-dark #Contact {
     background: #0b1120;
@@ -301,6 +303,7 @@ body.theme-dark .skill-pill:nth-child(3n):hover {
                 <li class="nav-item"><a class="nav-link" href="#Projects">My Projects</a></li>
                 <li class="nav-item"><a class="nav-link" href="#Experience">My Experience</a></li>
                 <li class="nav-item"><a class="nav-link" href="#Skills">My Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#Process">How I work</a></li>
                 <li class="nav-item"><a class="nav-link" href="#Contact">Contact me</a></li>
             </ul>
             <button class="btn btn-outline-primary btn-sm ms-md-3 mt-3 mt-md-0 theme-toggle" id="themeToggle" type="button" aria-pressed="false">
@@ -546,6 +549,69 @@ body.theme-dark .skill-pill:nth-child(3n):hover {
                     <span class="skill-pill">Agile / UML</span>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process -->
+<section id="Process">
+    <div class="container">
+        <p class="section-eyebrow">Method</p>
+        <h2 class="fw-bold mb-1">How I work</h2>
+        <p class="section-sub">
+            Right now, I am taking a UI design course and learning design fundamentals directly through the class.
+            I start from real user needs, then iterate through sketches, wireframes, prototypes, and quick feedback.
+        </p>
+
+        <div class="row row-cols-1 row-cols-md-3 g-3 mb-4">
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h6 class="card-title fw-semibold mb-2">1. Understand</h6>
+                        <p class="card-text small mb-0">
+                            I begin by clarifying the context, goals, and user needs before proposing a solution.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h6 class="card-title fw-semibold mb-2">2. Design</h6>
+                        <p class="card-text small mb-0">
+                            I explore multiple options with wireframes and mockups to compare clarity, hierarchy, and accessibility.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h6 class="card-title fw-semibold mb-2">3. Validate</h6>
+                        <p class="card-text small mb-0">
+                            I use feedback, heuristic evaluation, and simple testing to refine the interface before moving forward.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="section-sub mb-2">
+            Working references:
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-outline-primary btn-sm project-link-btn" href="https://www.nngroup.com/" target="_blank" rel="noopener noreferrer">
+                Nielsen Norman Group
+            </a>
+            <span class="badge tech-badge">User-centered design</span>
+            <span class="badge tech-badge">Heuristic evaluation</span>
+            <a class="btn btn-outline-primary btn-sm project-link-btn" href="https://www.w3schools.com/html/" target="_blank" rel="noopener noreferrer">
+                W3Schools HTML Course
+            </a>
+            <a class="btn btn-outline-primary btn-sm project-link-btn" href="https://www.w3schools.com/css/" target="_blank" rel="noopener noreferrer">
+                W3Schools CSS Course
+            </a>
+            <span class="badge tech-badge">Prototyping</span>
         </div>
     </div>
 </section>
